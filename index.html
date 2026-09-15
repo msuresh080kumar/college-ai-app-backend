@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>College AI Portal</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body{font-family:sans-serif;margin:0;background:#0f172a;color:white}
+header{background:#1e293b;padding:15px;display:flex;justify-content:space-between}
+header h1{color:#38bdf8;font-size:18px;margin:0}
+.cards{display:grid;grid-template-columns:1fr;gap:15px;padding:20px}
+@media(min-width:700px){.cards{grid-template-columns:1fr 1fr 1fr}}
+.card{background:#1e293b;padding:20px;border-radius:10px;border:1px solid #334155}
+.btn{background:#38bdf8;color:black;padding:10px 20px;border-radius:8px;text-decoration:none;font-weight:bold}
+input,button{width:100%;padding:10px;margin-top:10px;border-radius:6px;border:none}
+input{background:#0f172a;color:white;border:1px solid #334155}
+button{background:#38bdf8;font-weight:bold}
+</style>
+</head>
+<body>
+<header><h1>College AI Portal</h1><div>B.Sc AI Project</div></header>
+<div style="padding:40px;text-align:center">
+<h2>College AI - Final Year Project</h2>
+<p>By Suresh Kumar</p>
+<a class="btn" href="#ai">Try AI Bot</a>
+</div>
+<div class="cards">
+<div class="card">
+<h3 style="color:#38bdf8">Fees Check</h3>
+<input id="roll" placeholder="Roll No: 22AI01">
+<button onclick="checkFees()">Check</button>
+<p id="feesResult"></p>
+</div>
+<div class="card">
+<h3 style="color:#22c55e">Results</h3>
+<input id="resRoll" placeholder="Roll No">
+<button onclick="alert('Backend deploy panna work aagum da')">Check Result</button>
+</div>
+<div class="card" id="ai">
+<h3 style="color:#f59e0b">AI Chatbot</h3>
+<div id="chat" style="background:#0f172a;padding:10px;height:100px;overflow:auto;border-radius:6px">Hi da! Naan College AI Bot!</div>
+<input id="chatIn" placeholder="Kelu da...">
+<button onclick="send()">Ask</button>
+</div>
+</div>
+<script>
+function checkFees(){
+ let r=document.getElementById('roll').value;
+ document.getElementById('feesResult').innerText="Backend live panna: "+r+" fees data varum da! Local la 127.0.0.1:5000/get/fees";
+}
+function send(){
+ let i=document.getElementById('chatIn');
+ let c=document.getElementById('chat');
+ c.innerHTML+="<div>You: "+i.value+"</div><div style='color:#38bdf8'>AI: Fees pathi kekkariya? Fees card paaru da!</div>";
+ i.value="";
+}
+</script>
+</body>
+</html>
